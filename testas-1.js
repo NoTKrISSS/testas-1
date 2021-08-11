@@ -63,36 +63,41 @@ for (let i = 0; i < data.length; i++){
     sum += (data[i].marks[j])
     }
     visuVidurkiai[i] = sum / data[i].marks.length
+    data[i].vidurkis = visuVidurkiai[i]
     sum = 0;
 }
 maziausiasVidurkis = Math.min(...visuVidurkiai)
+console.log("xxx", maziausiasVidurkis);
 for (let i = 0; i < data.length; i++){
-    for(let j = 0; j < data[i].marks.length; j++)
-    if(data[i].marks[j] === maziausiasVidurkis){
-        console.log("Prasciausias vidurkis: ", data[i].name, maziausiasVidurkis);
+    
+    if(data[i].vidurkis === maziausiasVidurkis){
+        console.log("Prasciausias vidurkis: ", data[i].name, data[i].vidurkis);
         console.log("-----------------");
     }
+    
 }
 
-// Isspausdina mokinio varda ir pazymiu vidurki, kuris turi geriausia pazymiu vidurki(neissprendziau sito kazkur isivele klaida :///)
-let visuVidurkiai2 = []
+// Isspausdina mokinio varda ir pazymiu vidurki, kuris turi geriausia pazymiu vidurki
+visuVidurkiai = []
 let didziausiasVidurkis = 0;
-let sum2 = 0;
+sum = 0;
 
 for (let i = 0; i < data.length; i++){
     for(let j = 0; j < data[i].marks.length; j++){
-    sum2 += (data[i].marks[j])
+    sum += (data[i].marks[j])
     }
-    visuVidurkiai2[i] = sum2 / data[i].marks.length
-    sum2 = 0;
+    visuVidurkiai[i] = sum / data[i].marks.length
+    data[i].vidurkis = visuVidurkiai[i]
+    sum = 0;
 }
-didziausiasVidurkis = Math.max(...visuVidurkiai2)
+didziausiasVidurkis = Math.max(...visuVidurkiai)
 for (let i = 0; i < data.length; i++){
-    for(let j = 0; j < data[i].marks.length; j++)
-    if(data[i].marks[j] === didziausiasVidurkis){
-        console.log("Geriausias vidurkis: ", data[i].name, didziausiasVidurkis);
+    
+    if(data[i].vidurkis === didziausiasVidurkis){
+        console.log("Geriausias vidurkis: ", data[i].name, data[i].vidurkis);
         console.log("-----------------");
     }
+    
 }
 
 // Isspausdina mokinio varda, jei jis turi pazymi 8
